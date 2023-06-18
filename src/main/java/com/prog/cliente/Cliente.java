@@ -1,12 +1,14 @@
 package com.prog.cliente;
 
-//Se modifica el programa para implementar el uso de args.
+/*Se modifica el programa para implementar el uso de args.
 
-/*La arquitectura limpia aumenta la escalabilidad, mantenibilidad y la facilidad para realizar test contra el codigo.
-    En general deberia aplicarse siempre que sean deseables las caracteristicas anteriores, lo que viene a llevarnos a pensar que deberia hacerse siempre.
+La arquitectura limpia aumenta la escalabilidad, mantenibilidad y la facilidad para realizar test contra el codigo.
+En general deberia aplicarse siempre que sean deseables las caracteristicas anteriores, lo que viene a llevarnos a pensar que deberia hacerse siempre.
 Sin embargo, no tiene sentido en programas pequeños y sencillos en que aplicar la Clean Arquitecture complicaría en sí mismo el desarrollo, 
 en parte por la estructura de carpetas, etc, que debe crearse para ello.
 
+
+Se limpia el código enviando los print a clases separadas. Haber partido de un patrón de diseño hace que el codigo esté mejor organizado de base.
 */
 public class Cliente {
     public static void main(String args[]) {
@@ -30,13 +32,10 @@ public class Cliente {
             Averia.reparar(profesion);
             break;
         case "help":
-            System.out.println("Esta es la lista de parámetros disponibles:");
-            System.out.println(">>>  electricidad  ----->Para solucionar averías de tipo eléctrico");
-            System.out.println(">>>  fontaneria    ----->Para solucionar averías de tuberías y grifos");
-            System.out.println(">>>  albañileria   ----->Para solucionar averías estructurales");
+            verAyuda();
+            break;
         default:
-            System.out.println("ERROR ----> Debe introducir un parámetro válido");
-            System.out.println("Tambien puede introducir help como parámetro para ver la lista de parámetros disponibles");
+            verParametroInvalido();
             break;
             }
         }
@@ -46,6 +45,18 @@ public class Cliente {
         System.out.println("ERROR ----> Debe introducir un parámetro");
         System.out.println("Tambien puede introducir help como parámetro para ver la lista de parámetros disponibles");
     }
+    }
+    
+    static void verAyuda(){
+        System.out.println("Esta es la lista de parámetros disponibles:");
+            System.out.println(">>>  electricidad  ----->Para solucionar averías de tipo eléctrico");
+            System.out.println(">>>  fontaneria    ----->Para solucionar averías de tuberías y grifos");
+            System.out.println(">>>  albañileria   ----->Para solucionar averías estructurales");
+    }
+    
+    static void verParametroInvalido(){
+        System.out.println("ERROR ----> Debe introducir un parámetro válido");
+            System.out.println("Tambien puede introducir help como parámetro para ver la lista de parámetros disponibles");
     }
 }
 
